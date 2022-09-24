@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
 from .forms import PostForm
 from django.utils import timezone
-
 # Create your views here.
 def main(request):
     return render(request, 'main.html')
@@ -14,10 +13,12 @@ def create(request):
             form = form.save(commit=False)
             form.date = timezone.now()
             form.save()
-            return redirect('main')
+            return redirect('read')
         
+        else:
+            return render(request, 'create.html', {'form':form})
     else:
-        form = PostForm
+        form = PostForm()
         return render(request, 'create.html', {'form':form})
     
 def read(request):
