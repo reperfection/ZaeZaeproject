@@ -7,6 +7,7 @@ def main(request):
     return render(request, 'main.html')
 
 def create(request):
+    context = {}
     if request.method == "POST":
         form = PostForm(request.POST)
         if form.is_valid():
@@ -14,12 +15,11 @@ def create(request):
             form.date = timezone.now()
             form.save()
             return redirect('read')
-        
-        else:
-            return render(request, 'create.html', {'form':form})
+
     else:
         form = PostForm()
-        return render(request, 'create.html', {'form':form})
+    context['form'] = form
+    return render(request, 'create.html', {'form':form})
     
 def read(request):
     posts = Post.objects
