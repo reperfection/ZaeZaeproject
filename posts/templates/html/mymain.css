@@ -205,12 +205,35 @@ body {
   letter-spacing: 1px;
 }
 
-.song_title {
-  margin-top: 50px;
-  margin-left: 30px;
+/* 하나의 라인 배치 */
+
+.first_song {
+  display: flex;
+  justify-content: flex-end;
 }
 
-/* .music_address {
+/* .first_song {
+  display: flex;
+  margin-top: 50px;
+  margin-right: 100px;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.song_img {
+  display: flex;
+  margin-bottom: 30px;
+  width: 100%;
+  object-fit: contain;
+}
+
+.song_title {
+  display: flex;
+} */
+
+/* 공통 부분 */
+
+.music_address {
   text-decoration: none;
   color: white;
 }
@@ -223,27 +246,7 @@ body {
 .music_address:hover {
   color: #01fe87;
   text-decoration: underline;
-} */
-
-.first_song {
-  margin-top: 100px;
 }
-
-.song_img {
-  width: 450px;
-  height: 300px;
-  object-fit: contain;
-}
-
-/* .content ul {
-  list-style-type: none;
-}
-
-.content ul li:before {
-  content: "\2013";
-  position: absolute;
-  margin-left: 15px;
-} */
 
 /* 메인 홈페이지 sidebar 부분 */
 
