@@ -1,5 +1,5 @@
 <!-- 메인 페이지 -->
-<!-- {% load static %} -->
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,16 +8,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main</title>
-    <link rel="stylesheet" href="mymain.css">
+    <link rel="stylesheet" href="{% static 'css/mymain.css' %}" />
+    <!-- <link rel="stylesheet" href="mymain.css"> -->
     <script src="https://kit.fontawesome.com/8e04d320f4.js" crossorigin="anonymous"></script>
-    <!-- <link rel="stylesheet" href="{% static 'css/mymain.css' %}"> -->
 </head>
 
 <body>
     <div class="loading">
         <h2 data-text="OwnMusic...">OwnMusic</h2>
-        <a href="#navbar" style="--clr:#01fe87"><span>오늘의 노래&nbsp;<i class="fa-regular fa-face-smile"></i></span><i
-                class="i_bar"></i></a>
+        <a href="#navbar" style="--clr:#01fe87"><span>오늘의 노래&nbsp;<i class="fa-regular fa-face-smile"></i></span>
+            <i class="i_bar"></i></a>
     </div>
     <a name="navbar">
         <div class="navbar">
@@ -32,7 +32,7 @@
 
     <div class="container">
         <div class="content">
-            <img src="music.png" class="whistle">
+            <img src="{% static 'img/music.png' %}" class="whistle">
             <h2 class="content_text">당신의 기분을 음악으로 표현하세요.</h2>
 
             <!-- <span class="feeling_deco"></span> -->
@@ -64,10 +64,10 @@
         <div class="sidebar">
             <div class="toggle"><span></span></div>
             <ul>
-                <li style="--i:0;"><a href="#">Lonely</a></li>
-                <li style="--i:1;"><a href="#">Sad</a></li>
-                <li style="--i:2;"><a href="#">Excited</a></li>
-                <li style="--i:3;"><a href="#">Tired</a></li>
+                <li style="--i:0;"><a href="#header">Lonely</a></li>
+                <li style="--i:1;"><a href="#navbar">Sad</a></li>
+                <li style="--i:2;"><a href="#header">Excited</a></li>
+                <li style="--i:3;"><a href="#navbar">Tired</a></li>
                 <li style="--i:4;"><a href="#">Flutter</a></li>
                 <li style="--i:5;"><a href="#">Happy</a></li>
                 <li style="--i:6;"><a href="#">Sad</a></li>
