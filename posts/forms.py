@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 
 class PostForm(forms.ModelForm):
     title = forms.CharField(
-        required=False,
+        required=True,
         label = '제목',
         widget=forms.TextInput(),
         error_messages={
