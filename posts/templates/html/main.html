@@ -2,6 +2,7 @@
 <!-- {% load static %} -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,23 +12,80 @@
     <script src="https://kit.fontawesome.com/8e04d320f4.js" crossorigin="anonymous"></script>
     <!-- <link rel="stylesheet" href="{% static 'css/mymain.css' %}"> -->
 </head>
+
 <body>
     <div class="loading">
         <h2 data-text="OwnMusic...">OwnMusic</h2>
-        <a href="#header" style="--clr:#01fe87"><span>오늘의 노래&nbsp;<i class="fa-regular fa-face-smile"></i></span><i class="i_bar"></i></a>
-        <!-- <i class="fa-regular fa-face-sad-tear"></i> -->
-    </div> 
+        <a href="#navbar" style="--clr:#01fe87"><span>오늘의 노래&nbsp;<i class="fa-regular fa-face-smile"></i></span><i
+                class="i_bar"></i></a>
+    </div>
+    <a name="navbar">
+        <div class="navbar">
+            <h2 class="navbar_text">OwnMusic</h2>
+        </div>
+    </a>
     <a name=header>
         <div class="header">
-            <h1 class="title">오늘, 당신의 기분은?</h1>
-        </div> 
-    </a>    
+            <h1 class="title">오늘, 당신의&nbsp; <span class="feel">기분</span>은?</h1>
+        </div>
+    </a>
 
     <div class="container">
-        <div class="content">컨텐츠담기</div>
-        <div class="sidebar">사이드바담기</div>
+        <div class="content">
+            <span class="feeling_deco"></span>
+            <h1 class="feeling">I'm Listening songs when I feel&nbsp; <span class="feel">Lonely</span></h1>
+            <div class="songs">
+                <div class="first_song">
+                    <a href="https://www.youtube.com/watch?v=9voN0gkdlS4" class="music_address" target="_blank">
+                        <img src="https://image.bugsm.co.kr/album/images/350/40797/4079758.jpg" class="song_img">
+                    </a>
+                    <h3 class="song_title">Charlie Puth - I don't think that I like her</h3>
+                </div>
+                <div class="second_song">
+                    <a href="https://www.youtube.com/watch?v=9voN0gkdlS4" class="music_address" target="_blank">
+                        <img src="https://image.bugsm.co.kr/album/images/350/40797/4079758.jpg" class="song_img">
+                    </a>
+                    <h3 class="song_title">Charlie Puth - I don't think that I like her</h3>
+                </div>
+                <div class="third_song">
+                    <a href="https://www.youtube.com/watch?v=9voN0gkdlS4" class="music_address" target="_blank">
+                        <img src="https://image.bugsm.co.kr/album/images/350/40797/4079758.jpg" class="song_img">
+                    </a>
+                    <h3 class="song_title">Charlie Puth - I don't think that I like her</h3>
+                </div>
+            </div>
+
+        </div>
+        <div class="sidebar">
+            <div class="toggle"><span></span></div>
+            <ul>
+                <li style="--i:0;"><a href="#">Lonely</a></li>
+                <li style="--i:1;"><a href="#">Sad</a></li>
+                <li style="--i:2;"><a href="#">Excited</a></li>
+                <li style="--i:3;"><a href="#">Tired</a></li>
+                <li style="--i:4;"><a href="#">Flutter</a></li>
+                <li style="--i:5;"><a href="#">Happy</a></li>
+                <li style="--i:6;"><a href="#">Sad</a></li>
+                <li style="--i:7;"><a href="#">Excited</a></li>
+                <li style="--i:8;"><a href="#">Tired</a></li>
+                <li style="--i:9;"><a href="#">Flutter</a></li>
+                <li style="--i:10;"><a href="#">Sad</a></li>
+                <li style="--i:11;"><a href="#">Excited</a></li>
+                <li style="--i:12;"><a href="#">Tired</a></li>
+                <li style="--i:13;"><a href="#">Flutter</a></li>
+
+            </ul>
+        </div>
     </div>
+    <script>
+        let sidebar = document.querySelector('.sidebar');
+        document.querySelector('.toggle').onclick = function () {
+            this.classList.toggle('active');
+            sidebar.classList.toggle('active')
+        }
+    </script>
 
     <div class="footer">footer</div>
 </body>
+
 </html>
