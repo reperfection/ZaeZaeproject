@@ -7,8 +7,7 @@ class PostForm(forms.ModelForm):
     title = forms.CharField(
         required=True,
         label = '제목',
-        widget=forms.TextInput(
-            attrs={'readonly':'readonly'}),
+        widget=forms.TextInput(),
         error_messages={
             'required' : '글을 작성해주세요.'}
     )
@@ -17,3 +16,16 @@ class PostForm(forms.ModelForm):
         model = Post
         fields = ['title', 'email', 'url', 'content', 'image']
 
+class PostEditForm(forms.ModelForm):
+    title = forms.CharField(
+        required=True,
+        label = '제목',
+        widget=forms.TextInput(
+            attrs={'readonly':'readonly'}),
+        error_messages={
+            'required' : '글을 작성해주세요.'}
+    )
+
+    class Meta:
+        model = Post
+        fields = ['title', 'email', 'url', 'content', 'image']    

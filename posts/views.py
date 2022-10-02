@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, PostEditForm
 from django.utils import timezone
 # Create your views here.
 def main(request):
@@ -33,14 +33,14 @@ def edit(request, id):
     post = get_object_or_404(Post, id=id)
     
     if request.method == 'POST':
-        form = PostForm(request.POST, request.FILES, instance=post)
+        form = PostEditForm(request.POST, request.FILES, instance=post)
         if form.is_valid():
             form.save(commit=False)
             form.save()
             return redirect('read')
 
     else:
-        form = PostForm(instance=post)
+        form = PostEditForm(instance=post)
         return render(request, 'edit.html', {'form':form, 'post':post})
     
 def delete(request, id):
