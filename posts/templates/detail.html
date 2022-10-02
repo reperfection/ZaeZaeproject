@@ -12,6 +12,12 @@
         <h3> 제목 : {{posts.title}}</h3>
         <P> 작성일 : {{posts.date}} </p>
         <p> 내용 : {{posts.content}} </p>
+        {% if posts.image %}
+        <img src="{{ posts.image.url }}" width = "400" height = "400" alt="image">
+        {% endif %}
+        <br><br>
+        <a href="{% url 'edit' posts.id %}">수정하기</a>
+        <a href="{% url 'delete' posts.id %}">삭제하기</a>
     </div>
 </body>
 </html>

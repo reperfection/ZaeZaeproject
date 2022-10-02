@@ -8,6 +8,7 @@ class Post(models.Model):
     content = models.TextField()
     email = models.EmailField(max_length=200, blank=True)
     url = models.URLField(max_length=200, blank=True)
+    image = models.ImageField(upload_to='images/', blank = True)
     
     def __str__(self):
         return self.title
