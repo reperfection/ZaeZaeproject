@@ -29,3 +29,18 @@ class PostEditForm(forms.ModelForm):
     class Meta:
         model = Post
         fields = ['title', 'email', 'url', 'content', 'image']    
+
+class EditUserForm(forms.Form):
+    age = forms.IntegerField(
+        widget=forms.TextInput(),
+    )
+    
+    introduce = forms.CharField(
+        widget=forms.TextInput(),
+    )
+    
+    address = forms.CharField(
+        widget=forms.TextInput(),
+    )
+    
+    

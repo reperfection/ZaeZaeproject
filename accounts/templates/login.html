@@ -1,0 +1,13 @@
+{% if user.is_authenticated %}
+    <h3>{{user.username}}님 하이요!</h3>
+    <a href="{% url 'mypage' %}">마이페이지</a>
+    <a href="{% url 'create' %}">글쓰기</a>
+    <a href="{% url 'logout' %}">로그아웃</a>
+{% else %}
+    <form method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">로그인</button>
+        <a href="{% url 'signup' %}">회원 가입</a>
+    </form>
+{% endif%}
