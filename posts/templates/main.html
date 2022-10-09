@@ -25,6 +25,7 @@
     <a name="navbar">
         <div class="navbar">
             <h2 class="navbar_text">OwnMusic</h2>
+            <button class="register_btn" onclick="registerShift()">회원가입</button>
         </div>
     </a>
 
@@ -90,6 +91,11 @@
         document.querySelector('.toggle').onclick = function () {
             this.classList.toggle('active');
             sidebar.classList.toggle('active')
+        }
+    </script>
+    <script>
+        function registerShift() {
+            window.location = "{% url 'register' %}";
         }
     </script>
 

@@ -82,3 +82,6 @@ def passwordchange(request):
     else:
         form = PasswordChangeForm(request.user)
         return render(request, 'passwordchange.html', {'form':form})
+
+def register(request):
+    return render(request, 'register.html')

@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>프엔이 만든 회원가입 창</title>
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+
+<body>
+    <div class="member_border">
+        <h1 class="member_rg">회원가입</h1>
+        <form class="member_input">
+            <div class="register_field">
+                <label for="">이름 :</label>
+                <input type="text" class="register_ip">
+            </div>
+
+            <div class="register_field">
+                <label for="">아이디(6자 이상) :</label>
+                <input type="text" id="username" class="register_ip">
+                <div class="failure-message  hide">아이디는 6글자 이상이어야 합니다.</div>
+                <div class="success-message hide">사용할 수 있는 아이디 입니다.</div>
+            </div>
+
+            <div class="register_field">
+                <label for="">비밀번호 :</label>
+                <input type="password" id="pw" class="register_ip">
+                <div class="style0">비밀번호는 문자, 숫자, 특수문자로 구성하여 입력해주세요.</div>
+            </div>
+
+            <div class="register_field">
+                <label for="">비밀번호 확인 :</label>
+                <input type="password" id="pw-retype" class="register_ip">
+                <div class="mismatch-message hide">두 비밀번호가 일치하지 않습니다.</div>
+                <div class="match-message hide">두 비밀번호가 일치합니다.</div>
+            </div>
+
+            <div class="register_field">
+                <label for="">전화번호 :</label>
+                <input type="text" id="phonenumber" class="register_ip">
+                <div class="style1">전화번호는 "-"를 제외한 숫자만 입력해주세요.</div>
+                <div class="misnumber-message hide">숫자를 입력해주세요.</div>
+            </div>
+
+            <div class="register_field">
+                <button id="joinbutton">회원가입</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="{% static 'js/register.js' %}"></script>
+</body>
+
+</html>

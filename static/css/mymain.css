@@ -126,7 +126,9 @@ body {
 
 /* 메인 홈페이지 nav 부분 */
 .navbar {
+  display: flex;
   background-color: #03e07d;
+  justify-content: space-around;
 }
 
 .navbar_text {
@@ -134,6 +136,23 @@ body {
   justify-content: center;
   color: white;
   padding: 12px 0px;
+  margin-left: 10px;
+}
+
+/* nav 부분 회원가입 창 가기 */
+.register_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #03e07d;
+  border: none;
+  color: white;
+}
+
+.register_btn:hover {
+  cursor: pointer;
+  color: #000;
+  transition: 0.5s;
 }
 
 /* 메인 홈페이지 헤더 부분 */

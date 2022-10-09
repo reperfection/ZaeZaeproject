@@ -1,0 +1,45 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #252839;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 30px;
+  border: 2px solid #383d52;
+}
+
+form > p {
+  margin: 30px;
+}
+
+form > ul {
+  list-style: none;
+  margin: 30px;
+  color: #01fe87;
+}
+
+p > label {
+  color: white;
+}
+
+#id_username,
+#id_password1,
+#id_password2,
+#id_age,
+#id_address,
+#id_introduce {
+  background-color: #252839;
+  border: 1px solid #383d52;
+}
+
+.helptext {
+  color: #01fe87;
+  display: none;
+}
