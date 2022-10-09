@@ -1,0 +1,19 @@
+{% load static %}
+{% if user.is_active %}
+{% if user.userphoto %}
+    <img src="{{user_profile.userphoto.url}}" width="400" heigth="300" alt="image">
+{% else %}
+    <img src="{% static 'img/Jiu.jpg' %}" width="400" heigth="300" alt="image">
+{% endif %}    
+<br>
+    <p>유저명 : {{ user_profile.username }}</p>
+    <p>유저 소개말 : {{user_profile.introduce }}</p>
+    <p>유저 나이  : {{user_profile.age }}</p>
+    <p>유저 주소: {{user_profile.address }}</p>
+    <a href = "{% url 'edituser' %}">회원정보수정</a>
+    <a href = "{% url 'passwordchange' %}">비밀번호 변경</a>
+    <a href = "{% url 'logout' %}">로그아웃</a>
+{% else %}
+    <a href="{% url 'login' %}">로그인</a>
+    <a href="{% url 'signup' %}">회원 가입</a>
+{% endif %}

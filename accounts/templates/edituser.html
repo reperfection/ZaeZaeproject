@@ -1,0 +1,12 @@
+{%load static %}
+<h1>{{user.username}}님 프로필 수정</h1>
+
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<h3> 프로필 사진  {{form.userphoto}} </h3>
+
+<h3>나이 : {{ form.age}}</h3>
+<h3>소개말 : {{form.introduce}}</h3>
+<h3>주소 : {{form.address}}</h3>
+<button type ="submit">변경 저장</button>
+<a href="{% url 'mypage' %}"><span>취소하기</span></a>
