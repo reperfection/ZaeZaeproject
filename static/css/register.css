@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #252839;
+  color: white;
+}
+
+.hide {
+  display: none;
+}
+
+.failure-message,
+.mismatch-message,
+.misnumber-message {
+  color: rgb(255, 51, 51);
+}
+
+.success-message,
+.match-message {
+  color: rgb(75, 211, 245);
+}
+
+.style0,
+.style1 {
+  color: #01fe87;
+}
+
+.register_field {
+  border: none;
+  padding: 10px;
+}
+
+/* 회원가입 창 */
+.member_border {
+  width: 40%;
+  height: 70vh;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  border: 2px solid #383d52;
+  border-radius: 30px;
+}
+
+.member_rg {
+  display: flex;
+  width: 58%;
+  font-weight: 300;
+}
+
+.member_input {
+  display: flex;
+  flex-direction: column;
+}
+
+.register_ip {
+  border: 1px solid #383d52;
+}
+
+#joinbutton {
+  border: 1px solid #383d52;
+  padding: 10px;
+}
+
+#joinbutton:hover {
+  cursor: pointer;
+  color: #01fe87;
+  background-color: #383d52;
+  border-color: #252839;
+}
