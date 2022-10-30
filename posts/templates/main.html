@@ -41,6 +41,7 @@
                 </div>
             </div>
             <button class="recommend_btn">오늘의 추천 곡</button>
+            <button class="mypage_btn" onclick="mypageShift()">마이 페이지</button>
         </div>
     </a>
 
@@ -104,6 +105,11 @@
         </div>
     </div>
     <script src="{% static 'js/modal.js' %}"></script>
+    <script>
+        function mypageShift() {
+            window.location = "{% url 'mypage' %}";
+        }
+    </script>
     <script>
         let sidebar = document.querySelector('.sidebar');
         document.querySelector('.toggle').onclick = function () {
