@@ -8,11 +8,9 @@
 </head>
 <body>
     <h2>read</h2>
-    <form method="POST">
         {% for posts in posts.all %}
         <h3> 제목 : <a href="{% url 'detail' posts.id %}">{{posts.title}} </a></h3>
         <p> 작성일 : {{posts.date}} </p>
         {% endfor %}
-    </form>
 </body>
 </html>

@@ -19,5 +19,19 @@
         <a href="{% url 'edit' posts.id %}">수정하기</a>
         <a href="{% url 'delete' posts.id %}">삭제하기</a>
     </div>
+    <br><br>
+    {% for comment in posts.comments.all %}
+        {% if user == comment.user %}
+        {{ comment.content }} (작성자)
+        {% else %}
+        <p>{{ comment.content}}</p>
+        {% endif %}
+        {% endfor %}
+        <hr>
+    <form method = "POST" action="{% url 'detail' posts.id %}">
+        {% csrf_token %}
+        <p>{{ form.as_p }}</p>
+        <input type="submit" value="제출">
+    </form>
 </body>
 </html>
