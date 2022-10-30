@@ -150,7 +150,8 @@ body {
   margin-right: 40px;
 }
 
-.recommend_btn {
+.recommend_btn,
+.mypage_btn {
   display: flex;
   align-items: center;
   background-color: #03e07d;
@@ -160,7 +161,8 @@ body {
 }
 
 .register_btn:hover,
-.recommend_btn:hover {
+.recommend_btn:hover,
+.mypage_btn:hover {
   cursor: pointer;
   color: #000;
   transition: 0.5s;
