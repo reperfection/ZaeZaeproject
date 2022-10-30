@@ -32,20 +32,20 @@ def read(request):
     return render(request, 'read.html', {'posts':posts})
 
 def detail(request, id):
-    posts = get_object_or_404(Post, id=id)
+    post = get_object_or_404(Post, id=id)
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit = False)
             comment.created_date = timezone.now()
-            comment.post = posts
-            comment.content = form.cleaned_data['content']
+            comment.post = post
             comment.user = request.user
+            comment.content = form.cleaned_data['content']
             comment.save()
             return redirect('detail', id)
     else:
         form = CommentForm()
-        return render(request, 'detail.html', {'posts':posts, 'form':form})
+        return render(request, 'detail.html', {'post':post, 'form':form})
 
 def edit(request, id):
     post = get_object_or_404(Post, id=id)
@@ -65,3 +65,20 @@ def delete(request, id):
     post = get_object_or_404(Post, id=id)
     post.delete()
     return redirect('read') 
+
+
+def update_comment(request, commentid, postid):
+    post = get_object_or_404(Post, id=postid)
+    comment = Comment.objects.get(id=commentid)
+    comment_form = CommentForm(instance=comment)
+    if request.method == 'POST':
+        update_form = CommentForm(request.POST, instance = comment)
+        if update_form.is_valid():
+            update_form.save()
+            return redirect('detail', postid)
+    return render(request, 'update_comment.html', {'comment_form':comment_form, 'post':post})
+
+def delete_comment(request, commentid, postid):
+    comment = Comment.objects.get(id=commentid)
+    comment.delete()
+    return redirect('detail', postid)
