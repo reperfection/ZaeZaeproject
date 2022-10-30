@@ -128,7 +128,7 @@ body {
 .navbar {
   display: flex;
   background-color: #03e07d;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .navbar_text {
@@ -142,14 +142,25 @@ body {
 /* nav 부분 회원가입 창 가기 */
 .register_btn {
   display: flex;
-  justify-content: center;
+  margin-left: auto;
   align-items: center;
   background-color: #03e07d;
   border: none;
   color: white;
+  margin-right: 40px;
 }
 
-.register_btn:hover {
+.recommend_btn {
+  display: flex;
+  align-items: center;
+  background-color: #03e07d;
+  border: none;
+  color: white;
+  margin-right: 40px;
+}
+
+.register_btn:hover,
+.recommend_btn:hover {
   cursor: pointer;
   color: #000;
   transition: 0.5s;
@@ -312,6 +323,78 @@ body {
     color: #fff;
     margin-top: 10px;
   }
+}
+
+/* modal popup */
+
+.recommend_modal {
+  position: absolute;
+  z-index: 999;
+  top: 30;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.recommend_modal.show {
+  display: block;
+}
+
+.modal_body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 600px;
+  padding: 40px;
+  text-align: center;
+  background-color: #252839;
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 2px 3px 0 rgba(34, 36, 38, 0.15);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* modal recommend song's image */
+.song_cover {
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 30px;
+  cursor: unset;
+}
+
+.album_cover {
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+}
+
+.album_cover > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.song_link {
+  font-size: 12px;
+  letter-spacing: 1px;
+  border: 1px solid #373944;
+  background-color: #252839;
+  color: white;
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.song_link:hover {
+  transform: translateY(-4px);
+  border-color: #01fe87;
+  color: #03e07d;
 }
 
 /* 공통 부분 */

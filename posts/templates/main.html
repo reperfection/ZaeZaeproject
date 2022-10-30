@@ -26,8 +26,25 @@
         <div class="navbar">
             <h2 class="navbar_text">OwnMusic</h2>
             <button class="register_btn" onclick="registerShift()">회원가입</button>
+            <div class="recommend_modal">
+                <div class="modal_body">
+                    <div class="song_cover">
+                        <p>Today's Song</p>
+                        <div class="album_cover">
+                            <img src="{% static 'img/dryflower.jpg' %}" alt="dryflower">
+                        </div>
+                        <h4> Dry Flower (ドライフラワー) </h4>
+                        <h5>Yuuri</h5>
+                        <button class="song_link"
+                            onclick="window.open('https://www.youtube.com/watch?v=kzZ6KXDM1RI');">바로 들으러 가기</button>
+                    </div>
+                </div>
+            </div>
+            <button class="recommend_btn">오늘의 추천 곡</button>
         </div>
     </a>
+
+    <!-- recommned modal up-->
 
     <!-- slide part -->
     <div class="container">
@@ -86,6 +103,7 @@
             </div>
         </div>
     </div>
+    <script src="{% static 'js/modal.js' %}"></script>
     <script>
         let sidebar = document.querySelector('.sidebar');
         document.querySelector('.toggle').onclick = function () {
@@ -98,7 +116,6 @@
             window.location = "{% url 'register' %}";
         }
     </script>
-
     <div class="footer">footer</div>
 </body>
 
