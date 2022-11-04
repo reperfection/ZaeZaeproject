@@ -11,6 +11,7 @@ class Post(models.Model):
     email = models.EmailField(max_length=200, blank=True)
     url = models.URLField(max_length=200, blank=True)
     image = models.ImageField(upload_to='images/', blank = True)
+    hashtags = models.ManyToManyField('Hashtag', blank=True)
     
     def __str__(self):
         return self.title
@@ -24,3 +25,9 @@ class Comment(models.Model):
     
     def __str__(self):
         return self.content
+    
+class Hashtag(models.Model):
+    name = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.name

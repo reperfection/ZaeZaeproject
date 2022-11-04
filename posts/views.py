@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post, Comment
+from .models import Post, Comment, Hashtag
 from accounts.models import User
 from .forms import PostForm, PostEditForm, CommentForm
 from django.utils import timezone
@@ -16,12 +16,27 @@ def create(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
-            form = form.save(commit=False)
-            form.user = request.user
-            form.date = timezone.now()
-            form.save()
+            post = form.save(commit=False)
+            post.user = request.user
+            post.date = timezone.now()
+            post.save()
+            
+            content = request.POST.get('content') # 본문을 content에 저장
+            content_list = content.split() #공백으로 분리
+            # 해시태그 생성
+            for word in content_list: #word : ex) 오늘 #날씨 #춥다
+                if '#' in word: #만약 #이 붙어있으면 tag 객체를 이용하여 저장
+                    hashtag = Hashtag()
+                    hashtag.name = word
+                    hashtag.save()
+                    
+                    # 방금 생성된 해시태그와 현재 게시글을 관계 지어줌
+                    post_ = Post.objects.get(pk=post.pk)
+                    post_.hashtags.add(hashtag)
+                    # post 과 hashtag의 중개 테이블에 관계를 생성하는 부분
             return redirect('read')
-
+        else:
+            return redirect('create')
     else:
         form = PostForm()
     context['form'] = form
@@ -82,3 +97,13 @@ def delete_comment(request, commentid, postid):
     comment = Comment.objects.get(id=commentid)
     comment.delete()
     return redirect('detail', postid)
+
+def hashtag(request):
+    if request.method == 'POST':
+        word = request.POST.get('search') #word 입력받음
+        hashtag = Hashtag.objects.get(name=word)
+        post = Post.objects.filter(hashtags=hashtag)
+        context = {'hashtag':hashtag, 'post':post, 'word':word}
+        return render(request, 'search.html', context)
+    else:
+        return render(request, 'read.html')

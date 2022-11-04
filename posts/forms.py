@@ -1,6 +1,6 @@
 from xml.dom import ValidationErr
 from django import forms
-from .models import Post, Comment
+from .models import Post, Comment, Hashtag
 from django.core.exceptions import ValidationError
 
 class PostForm(forms.ModelForm):
@@ -28,9 +28,16 @@ class PostEditForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'email', 'url', 'content', 'image']
+        fields = ['title', 'email', 'url', 'content', 'image', 'hashtags']
         
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
         fields = ['content']
+
+'''
+class HashtagForm(forms.ModelForm):
+    class Meta:
+        model = Hashtag
+        fields = ['name']
+'''

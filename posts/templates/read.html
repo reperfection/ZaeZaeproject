@@ -8,6 +8,11 @@
 </head>
 <body>
     <h2>read</h2>
+    <form method="POST" action="{% url 'hashtag' %}">
+        {% csrf_token %}
+        <input type="" name="search" value="해시태그 검색" style="background-color: rgb(242, 242, 242">
+        <button type="submit">검색</button>
+    </form>
         {% for posts in posts.all %}
         <h3> 제목 : <a href="{% url 'detail' posts.id %}">{{posts.title}} </a></h3>
         <p> 작성일 : {{posts.date}} </p>
