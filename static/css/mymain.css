@@ -541,6 +541,31 @@ body {
 
 .footer {
   margin: auto;
-  background: #1e202e;
+  background: #000000;
+  border-top: 0.5px solid white;
   height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 시계 만들기 */
+
+.clock {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.date {
+  font-size: 16px;
+  color: #01fe87;
+}
+
+.time {
+  font-size: 56px;
+  font-weight: bold;
+  color: #01fe87;
 }
