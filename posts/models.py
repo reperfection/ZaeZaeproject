@@ -12,6 +12,8 @@ class Post(models.Model):
     url = models.URLField(max_length=200, blank=True)
     image = models.ImageField(upload_to='images/', blank = True)
     hashtags = models.ManyToManyField('Hashtag', blank=True)
+    post_like = models.ManyToManyField(User, related_name='like_users', blank=True)
+    like_count = models.PositiveIntegerField(default=0)
     
     def __str__(self):
         return self.title

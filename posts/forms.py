@@ -14,7 +14,7 @@ class PostForm(forms.ModelForm):
 
     class Meta:
         model = Post
-        fields = ['title', 'email', 'url', 'content', 'image']
+        fields = ['title', 'email', 'url', 'content', 'image', 'hashtags']
 
 class PostEditForm(forms.ModelForm):
     title = forms.CharField(
@@ -35,9 +35,8 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ['content']
 
-'''
+
 class HashtagForm(forms.ModelForm):
     class Meta:
         model = Hashtag
         fields = ['name']
-'''

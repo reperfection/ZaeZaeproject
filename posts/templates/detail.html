@@ -15,6 +15,14 @@
         {% if post.image %}
         <img src="{{ post.image.url }}" width = "400" height = "400" alt="image">
         {% endif %}
+        
+    {% for hashtag in post.hashtags.all %}
+        <span> {{ hashtag.name }}</span>
+    {% endfor %}
+    <hr>
+    <a href="{% url 'likes' post.id %}">
+        좋아요 : {{post.like_count}}
+    </a>
         <br><br>
         <a href="{% url 'edit' post.id %}">수정하기</a>
         <a href="{% url 'delete' post.id %}">삭제하기</a>
@@ -36,11 +44,12 @@
         <br><br>
         {% endif %}
     {% endfor %}
-        <hr>
+
     <form method = "POST" action="{% url 'detail' post.id %}">
         {% csrf_token %}
         <p>{{ form.as_p }}</p>
         <input type="submit" value="제출">
     </form>
+
 </body>
 </html>
