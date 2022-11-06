@@ -122,7 +122,14 @@
             window.location = "{% url 'register' %}";
         }
     </script>
-    <div class="footer">footer</div>
+    <div class="footer">
+        <div class="clock">
+            <div id="time" class="time"></div>
+            <div id="date" class="date"></div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/clock.js' %}"></script>
 </body>
 
 </html>

@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.like {
+  position: absolute;
+  height: 40px;
+  width: 40px;
+  margin-top: 40px;
+  background-color: white;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.like::before {
+  position: absolute;
+  content: "";
+  top: -100%;
+  left: 35px;
+  width: 9%;
+  height: 150%;
+  background: inherit;
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+.like::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.animation-like {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin-top: 40px;
+  background-color: #01fe87;
+  border: 1px solid black;
+  border-radius: 50%;
+  cursor: pointer;
+  visibility: hidden;
+}
+
+.animation-like.animation {
+  animation: 0.8s popup linear;
+  visibility: visible;
+}
+
+.like.fill-color {
+  background-color: #01fe87;
+  border: none;
+}
+
+@keyframes popup {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.animation-like::before {
+  position: absolute;
+  content: "";
+  top: -100%;
+  left: 35px;
+  width: 9%;
+  height: 150%;
+  background: inherit;
+  border-radius: 50%;
+  border: none;
+}
+
+.animation-like::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0%;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  border-radius: 50%;
+  border: none;
+}
+
+.edit {
+  margin-top: 40px;
+}
