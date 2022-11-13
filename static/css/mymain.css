@@ -151,7 +151,8 @@ body {
 }
 
 .recommend_btn,
-.mypage_btn {
+.mypage_btn,
+.mode_btn {
   display: flex;
   align-items: center;
   background-color: #03e07d;
@@ -162,10 +163,28 @@ body {
 
 .register_btn:hover,
 .recommend_btn:hover,
-.mypage_btn:hover {
+.mypage_btn:hover,
+.mode_btn:hover {
   cursor: pointer;
   color: #000;
   transition: 0.5s;
+}
+
+/* main page light mode 메인 페이지 라이트 모드 */
+.slider.light {
+  background: #ccc;
+  transition: all 0.5s;
+}
+
+.slider.light .imgBx .sContent p {
+  font-size: 1.1em;
+  color: #000;
+  transition: all 0.5s;
+}
+
+.sidebar.light {
+  background: #ccc;
+  transition: all 0.5s;
 }
 
 /* 메인 홈페이지 헤더 부분 */

@@ -12,7 +12,7 @@
     <h2>read</h2>
     <form method="POST" action="{% url 'hashtag_search' %}">
         {% csrf_token %}
-        <input type="" name="search" value="해시태그 검색" style="background-color: rgb(242, 242, 242">
+        <input type="" name="search" value="해시태그 검색" style="background-color: rgb(242, 242, 242)">
         <button type="submit">검색</button>
     </form>
     {% for posts in posts.all %}
