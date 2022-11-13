@@ -31,10 +31,9 @@
         <hr>
 
 
-        <div class="like">
+        <div class="like"  OnClick="location.href ='{% url 'likes' post.id%}'" >
             <a href="{% url 'likes' post.id %}">
                 {{post.like_count}}
-            </a>
         </div>
         <div class="animation-like">
         </div>
@@ -45,30 +44,30 @@
             <a href="{% url 'edit' post.id %}">수정하기</a>
             <a href="{% url 'delete' post.id %}">삭제하기</a>
         </div>
+        <div>
+            <br><br>
+            {% for comment in post.comment_set.all %}
+            {% if comment.user == post.user %}
+            {{ comment.content }} - 작성자
+            {{ comment.created_date }}
+            <a href="{% url 'update_comment' post.id comment.id %}">수정</a>
+            <a href="{% url 'delete_comment' post.id comment.id %}">삭제</a>
+            <br><br>
+            {% else %}
+            {{ comment.content }} - {{user.username }}
+            {{ comment.created_date }}
+            <a href="{% url 'update_comment' post.id comment.id %}">수정</a>
+            <a href="{% url 'delete_comment' post.id comment.id %}">삭제</a>
+            <br><br>
+            {% endif %}
+            {% endfor %}
+            </div>
+            <form method="POST" action="{% url 'detail' post.id %}" style="display: flex">
+                {% csrf_token %}
+                <p>{{ form.as_p }}</p>
+                <input type="submit" value="제출">
+            </form>
     </div>
-
-    <br><br>
-    {% for comment in post.comment_set.all %}
-    {% if comment.user == post.user %}
-    {{ comment.content }} - 작성자
-    {{ comment.created_date }}
-    <a href="{% url 'update_comment' post.id comment.id %}">수정</a>
-    <a href="{% url 'delete_comment' post.id comment.id %}">삭제</a>
-    <br><br>
-    {% else %}
-    {{ comment.content }} - {{user.username }}
-    {{ comment.created_date }}
-    <a href="{% url 'update_comment' post.id comment.id %}">수정</a>
-    <a href="{% url 'delete_comment' post.id comment.id %}">삭제</a>
-    <br><br>
-    {% endif %}
-    {% endfor %}
-
-    <form method="POST" action="{% url 'detail' post.id %}" style="display: flex">
-        {% csrf_token %}
-        <p>{{ form.as_p }}</p>
-        <input type="submit" value="제출">
-    </form>
 
     <script src="{% static 'js/like.js' %}"></script>
 

@@ -15,10 +15,19 @@
         <input type="" name="search" value="해시태그 검색" style="background-color: rgb(242, 242, 242">
         <button type="submit">검색</button>
     </form>
+    <form method="GET">
+        <select name="sort" id="sort">
+            <option value="date" id="date">최신순</option>
+            <option value="likes" id="likes">좋아요순</option>
+        </select>
+        <button type="submit">정렬</button>
+
     {% for posts in posts.all %}
     <h3> 제목 : <a href="{% url 'detail' posts.id %}">{{posts.title}} </a></h3>
     <p> 작성일 : {{posts.date}} </p>
+    <p> 좋아요 : {{posts.like_count}} </p>
     {% endfor %}
+    </form>
 </body>
 
 </html>

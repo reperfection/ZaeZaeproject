@@ -45,8 +45,14 @@ def create(request, post=None):
     #return render(request, 'create.html', {'form':form})
     
 def read(request):
-    posts = Post.objects
-    return render(request, 'read.html', {'posts':posts})
+    sort = request.GET.get('sort', '')
+    if sort == 'date':
+        posts = Post.objects.all().order_by('-date')
+    elif sort == 'likes':
+        posts = Post.objects.all().order_by('-like_count')
+    else:
+        posts = Post.objects
+    return render(request, 'read.html', {'posts':posts, 'sort':sort})
 
 def detail(request, id):
     post = get_object_or_404(Post, id=id)
@@ -129,13 +135,14 @@ def hashtag_search(request, hashtag=None):
         return render(request, 'read.html')
 
 def likes(request, id):
+    user = request.user
     like = get_object_or_404(Post, id=id)
     if request.user in like.post_like.all():
-        like.post_like.remove(request.user)
+        like.post_like.remove(user)
         like.like_count -= 1
         like.save()
     else:
-        like.post_like.add(request.user)
+        like.post_like.add(user)
         like.like_count += 1
         like.save()
     return redirect('detail', like.id)
