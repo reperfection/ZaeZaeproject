@@ -133,12 +133,13 @@ def hashtag_search(request, hashtag=None):
         return render(request, 'search.html', context)
     else:
         return render(request, 'read.html')
-
+    
+@login_required(login_url='/login/')
 def likes(request, id):
     user = request.user
     like = get_object_or_404(Post, id=id)
     if request.user in like.post_like.all():
-        like.post_like.remove(user)
+        like.post_like.remove(request.user)
         like.like_count -= 1
         like.save()
     else:
