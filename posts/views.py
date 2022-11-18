@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import login_required
 def main(request):
     return render(request, 'main.html')
 
+    
 #글쓰기 로그인 제한
 @login_required(login_url='/login/')
 def create(request, post=None):

@@ -1,5 +1,6 @@
 from django.urls import path
 from posts import views
+from payment import views as payments
 
 urlpatterns = [
     path('', views.main, name='main'),
@@ -13,4 +14,7 @@ urlpatterns = [
     path('search/hashtag/', views.hashtag_search, name='hashtag_search'),
     path('like/<str:id>/', views.likes, name='likes'),
     path('hashtag/', views.hashtag, name='hashtag'),
+    path('success/', payments.success),
+    path('fail/', payments.fail),
+    path('window/', payments.window),
 ]
