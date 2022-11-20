@@ -22,11 +22,11 @@
         </select>
         <button type="submit">정렬</button>
 
-    {% for posts in posts.all %}
-    <h3> 제목 : <a href="{% url 'detail' posts.id %}">{{posts.title}} </a></h3>
-    <p> 작성일 : {{posts.date}} </p>
-    <p> 좋아요 : {{posts.like_count}} </p>
-    {% endfor %}
+        {% for posts in posts.all %}
+        <h3> 제목 : <a href="{% url 'detail' posts.id %}">{{posts.title}} </a></h3>
+        <p> 작성일 : {{posts.date}} </p>
+        <p> 좋아요 : {{posts.like_count}} </p>
+        {% endfor %}
     </form>
 </body>
 

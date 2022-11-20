@@ -25,7 +25,7 @@
     <a name="navbar">
         <div class="navbar">
             <h2 class="navbar_text">OwnMusic</h2>
-            <button class="register_btn" onclick="registerShift()">회원가입</button>
+            <button class="register_btn" onclick="registerShift();">회원가입</button>
             <div class="recommend_modal">
                 <div class="modal_body">
                     <div class="song_cover">
@@ -41,15 +41,18 @@
                 </div>
             </div>
             <button class="recommend_btn">오늘의 추천 곡</button>
-            <button class="mypage_btn" onclick="mypageShift()">마이 페이지</button>
+            <button class="mypage_btn" onclick="mypageShift();">마이 페이지</button>
             <button class="mode_btn js_lightMode">모드 전환</button>
-            <button onclick="location.href='/window';">사이트 후원하기</button>
+            <button class="donate_btn" onclick="location.href='/window';">사이트 후원하기</button>
         </div>
     </a>
 
     <!-- recommned modal up-->
 
     <!-- slide part -->
+    <div class="gifImage">
+        <img class="piki" src="{% static 'img/piki.gif' %}">
+    </div>
     <div class="container">
         <div class="sidebar">
             <div class="toggle"><span></span></div>
@@ -109,6 +112,16 @@
     <script src="{% static 'js/modal.js' %}"></script>
     <script>
         function mypageShift() {
+            showLoading();
+            setTimeout("hideLoading()", 3000);
+        }
+        function showLoading() {
+            const loadingImage = document.querySelector('.gifImage');
+            loadingImage.style.display = 'block'
+        }
+        function hideLoading() {
+            const loadingImage = document.querySelector('.gifImage');
+            loadingImage.style.display = 'none'
             window.location = "{% url 'mypage' %}";
         }
     </script>
@@ -121,8 +134,19 @@
     </script>
     <script>
         function registerShift() {
+            showLoading();
+            setTimeout("hideLoading()", 3000);
+        }
+        function showLoading() {
+            const loadingImage = document.querySelector('.gifImage');
+            loadingImage.style.display = 'block'
+        }
+        function hideLoading() {
+            const loadingImage = document.querySelector('.gifImage');
+            loadingImage.style.display = 'none'
             window.location = "{% url 'register' %}";
         }
+
     </script>
     <div class="footer">
         <div class="clock">
@@ -133,6 +157,7 @@
 
     <script src="{% static 'js/clock.js' %}"></script>
     <script src="{% static 'js/lightMode.js' %}"></script>
+    <script src="{% static 'js/loading.js' %}"></script>
 </body>
 
 </html>
