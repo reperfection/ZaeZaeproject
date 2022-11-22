@@ -4,6 +4,8 @@ from accounts.models import User
 from .forms import PostForm, PostEditForm, CommentForm, HashtagForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
+import requests
+
 
 # Create your views here.
 def main(request):

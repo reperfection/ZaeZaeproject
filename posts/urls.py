@@ -13,4 +13,9 @@ urlpatterns = [
     path('search/hashtag/', views.hashtag_search, name='hashtag_search'),
     path('like/<str:id>/', views.likes, name='likes'),
     path('hashtag/', views.hashtag, name='hashtag'),
+    
+    #path('kakaoPayLogic/', views.kakaoPayLogic),
+    #path('paySuccess/', views.paySuccess),
+    #path('payFail/', views.payFail),
+    #path('payCancel/', views.payCancel),
 ]
