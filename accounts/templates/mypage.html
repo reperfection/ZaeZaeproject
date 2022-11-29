@@ -1,19 +1,29 @@
 {% load static %}
-{% if user.is_active %}
-{% if user.userphoto %}
-    <img src="{{user_profile.userphoto.url}}" width="400" heigth="300" alt="image">
-{% else %}
-    <img src="{% static 'img/Jiu.jpg' %}" width="400" heigth="300" alt="image">
-{% endif %}    
-<br>
-    <p>유저명 : {{ user_profile.username }}</p>
-    <p>유저 소개말 : {{user_profile.introduce }}</p>
-    <p>유저 나이  : {{user_profile.age }}</p>
-    <p>유저 주소: {{user_profile.address }}</p>
-    <a href = "{% url 'edituser' %}">회원정보수정</a>
-    <a href = "{% url 'passwordchange' %}">비밀번호 변경</a>
-    <a href = "{% url 'logout' %}">로그아웃</a>
-{% else %}
-    <a href="{% url 'login' %}">로그인</a>
-    <a href="{% url 'signup' %}">회원 가입</a>
-{% endif %}
+<link rel="stylesheet" href="{% static 'css/mypage.css' %}" />
+<h1 style="text-align: center; margin-top: 30px; color: #9dface">My page</h1>
+<div class="mypage_container">
+  {% if user.is_active %} {% if user.userphoto %}
+  <div class="profile_imgBox">
+    <img class="profile_img" src="{{user_profile.userphoto.url}}" alt="image" />
+  </div>
+  {% else %}
+  <div class="profile_imgBox">
+    <img class="profile_img" src="{% static 'img/Jiu.jpg' %}" alt="image" />
+  </div>
+</div>
+<div class="mypage_containerTwo">
+  {% endif %}
+  <br />
+  <p>유저명 : {{ user_profile.username }}</p>
+  <p>유저 소개말 : {{user_profile.introduce }}</p>
+  <p>유저 나이 : {{user_profile.age }}</p>
+  <p>유저 주소: {{user_profile.address }}</p>
+  <a href="{% url 'edituser' %}">회원정보수정</a>
+  <a href="{% url 'passwordchange' %}">비밀번호 변경</a>
+  <a class="logout_click" href="{% url 'logout' %}">로그아웃</a>
+  <div class="loader"></div>
+    {% else %}
+  <a href="{% url 'login' %}">로그인</a>
+  <a href="{% url 'signup' %}">회원 가입</a>
+  {% endif %}
+</div>

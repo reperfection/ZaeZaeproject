@@ -9,13 +9,15 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #252839;
+  color: white;
 }
 
 .like {
   position: absolute;
   height: 40px;
   width: 40px;
-  margin-top: 40px;
+  margin-top: 100px;
   background-color: white;
   border: 1px solid black;
   display: flex;
@@ -55,7 +57,7 @@ body {
   align-items: center;
   width: 40px;
   height: 40px;
-  margin-top: 40px;
+  margin-top: 100px;
   background-color: #01fe87;
   border: 1px solid black;
   border-radius: 50%;
@@ -105,5 +107,44 @@ body {
 }
 
 .edit {
-  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.edit > a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  font-size: 12px;
+}
+
+.edit > a:hover {
+  border: 1px solid white;
+  background: #01fe87;
+  color: black;
+  transition: all 0.3s;
+}
+
+.edit > a:visited {
+  color: White;
+}
+
+.detail_content,
+.detail_date {
+  margin-top: 20px;
+}
+
+.detail_updateD > a {
+  text-decoration: none;
+  color: white;
+}
+
+.detail_updateD > a:visited {
+  color: white;
+}
+
+.detail_updateD > a:hover {
+  color: #01fe87;
+  transition: all 0.3s;
 }

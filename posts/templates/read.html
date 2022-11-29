@@ -33,7 +33,7 @@
       <div class="sort_list">
         {% for posts in posts.all %}
         <h1 class="list_title">
-            <a href="{% url 'detail' posts.id %}"> 제목 : {{posts.title}} </a>
+          <a href="{% url 'detail' posts.id %}"> 제목 : {{posts.title}} </a>
         </h1>
         <p>좋아요 : {{posts.like_count}}</p>
         <p>작성일 : {{posts.date}}</p>
