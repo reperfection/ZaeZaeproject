@@ -15,12 +15,11 @@
 
 <body>
     <div class="col-lg-10">
-        <h2>detail</h2>
-        <hr>
-        <hr>
+        <h2>글 자세히 보기</h2>
+        <hr style="margin-bottom: 30px">
         <h3> 제목 : {{post.title}}</h3>
-        <P> 작성일 : {{post.date}} </p>
-        <p> 내용 : {{post.content}} </p>
+        <p class="detail_content"> 내용 : {{post.content}} </p>
+        <P class="detail_date"> 작성일 : {{post.date}} </p>
         {% if post.image %}
         <img src="{{ post.image.url }}" width="400" height="400" alt="image">
         {% endif %}
@@ -28,7 +27,7 @@
         {% for hashtag in post.hashtags.all %}
         <span> {{ hashtag.name }}</span>
         {% endfor %}
-        <hr>
+        <hr style="margin-top: 30px">
 
 
         <div class="like"  OnClick="location.href ='{% url 'likes' post.id%}'" >
@@ -44,7 +43,8 @@
             <a href="{% url 'edit' post.id %}">수정하기</a>
             <a href="{% url 'delete' post.id %}">삭제하기</a>
         </div>
-        <div>
+        <hr style='margin-top: 30px'>
+        <div class="detail_updateD">
             <br><br>
             {% for comment in post.comment_set.all %}
             {% if comment.user == post.user %}
