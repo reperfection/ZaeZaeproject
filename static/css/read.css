@@ -1,0 +1,121 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #252839;
+}
+
+.readTitle{
+    text-align: center;
+    font-size: 40px;
+    margin-top: 100px;
+    color: #01fe87;
+}
+
+.mood_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mood_search{
+    width: 400px;
+    height: 30px;
+    padding: 10px;
+    background-color: #ccc;
+    border-radius: 25px;
+    border:none;
+}
+
+.mood_search:hover{
+    border: 1px solid #01fe87;
+    cursor: pointer;
+}
+
+.mood_search:focus{
+    outline: 1px solid #01fe87;
+    background: #252839;
+    transform: translateY(-3px);
+    transition: all .3s;
+    color: white;
+}
+
+.mood_search_btn{
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #ccc;
+    border-color: white;
+    margin-left: 10px;
+}
+
+.mood_search_btn:hover{
+    border: 1px solid #01fe87;
+    background: #252839;
+    color: white;
+    transition: all .3s;
+}
+
+
+.sort_form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+
+}
+
+.sort_font{
+    color: #ccc;
+}
+
+.sort_select{
+    background-color: #ccc;
+    margin-left: 20px;
+    padding: 15px;
+    border-radius: 20px;
+}
+
+.sort_select > option{
+    background: #252839;
+    border: 1px solid #01fe87;
+    color: white;
+    border-radius: 6px;
+}
+
+.sort_btn{
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 15px;
+    background-color: #ccc;
+    border-color: white;
+    margin-left: 10px;
+}
+
+.sort_btn:hover{
+    border: 1px solid #01fe87;
+    background: #252839;
+    color: white;
+    transition: all .3s;
+}
+
+.sort_list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #2f3246;
+    border: 1px solid #252839;
+    border-radius: 25px;
+    color: white;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+.list_title> a{
+    text-decoration: none;
+}
+
+.list_title > a:visited{
+    color: white;
+}

@@ -1,33 +1,44 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>게시판</title>
-</head>
+    <link rel="stylesheet" href="{% static 'css/read.css' %}" />
+  </head>
 
-<body>
-    <h2>read</h2>
-    <form method="POST" action="{% url 'hashtag_search' %}">
-        {% csrf_token %}
-        <input type="" name="search" value="해시태그 검색" style="background-color: rgb(242, 242, 242)">
-        <button type="submit">검색</button>
+  <body>
+    <h2 class="readTitle">Music Board</h2>
+    <form method="POST" action="{% url 'hashtag_search' %}" class="mood_form">
+      {% csrf_token %}
+      <input
+        class="mood_search"
+        type=""
+        name="search"
+        value="    오늘의 기분은?"
+      />
+      <button class="mood_search_btn" type="submit">검색</button>
     </form>
     <form method="GET">
-        <select name="sort" id="sort">
-            <option value="date" id="date">최신순</option>
-            <option value="likes" id="likes">좋아요순</option>
+      <div class="sort_form">
+        <p class="sort_font">글 목록 조회:</p>
+        <select name="sort" id="sort" class="sort_select">
+          <option value="date" id="date">최신순</option>
+          <option value="likes" id="likes">좋아요순</option>
         </select>
-        <button type="submit">정렬</button>
-
+        <button type="submit" class="sort_btn">정렬</button>
+      </div>
+      <div class="sort_list">
         {% for posts in posts.all %}
-        <h3> 제목 : <a href="{% url 'detail' posts.id %}">{{posts.title}} </a></h3>
-        <p> 작성일 : {{posts.date}} </p>
-        <p> 좋아요 : {{posts.like_count}} </p>
+        <h1 class="list_title">
+            <a href="{% url 'detail' posts.id %}"> 제목 : {{posts.title}} </a>
+        </h1>
+        <p>좋아요 : {{posts.like_count}}</p>
+        <p>작성일 : {{posts.date}}</p>
         {% endfor %}
+      </div>
     </form>
-</body>
-
+  </body>
 </html>
