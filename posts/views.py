@@ -5,6 +5,7 @@ from .forms import PostForm, PostEditForm, CommentForm, HashtagForm
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 import requests
+from django.db.models import Q
 
 
 # Create your views here.
@@ -128,14 +129,23 @@ def hashtag(request, hashtag = None):
         return render(request, 'hashtag.html', {'form':form})
             
 def hashtag_search(request, hashtag=None):
-    if request.method == 'POST':
-        word = request.POST.get('search') #word 입력받음
-        hashtag = Hashtag.objects.filter(name=word)
-        post = Post.objects.filter(hashtags__in=hashtag) # __in을 넣지 않으면 검색 결과가 나오지 않음..
-        context = {'post':post, 'hashtag':hashtag, 'word':word}
-        return render(request, 'search.html', context)
+    search = request.GET.get('search', '')
+    posts = Post.objects.all()
+    if search:
+        post = posts.filter(
+            Q(hashtags__icontains = search)
+        )
+        return render(request, 'search.html', {'search':search, 'post':post})
     else:
-        return render(request, 'read.html')
+        return render(request, 'search.html')
+    #if request.method == 'GET':
+    #    word = request.GET.get('search', '') #word 입력받음
+    #    hashtag = Hashtag.objects.filter(name=word)
+    #    post = Post.objects.filter(hashtags__in=hashtag) # __in을 넣지 않으면 검색 결과가 나오지 않음..
+    #    context = {'post':post, 'hashtag':hashtag, 'word':word}
+    #    return render(request, 'search.html', context)
+    #else:
+    #    return render(request, 'read.html')
     
 @login_required(login_url='/login/')
 def likes(request, id):

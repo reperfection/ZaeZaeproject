@@ -11,7 +11,7 @@
 
   <body>
     <h2 class="readTitle">Music Board</h2>
-    <form method="POST" action="{% url 'hashtag_search' %}" class="mood_form">
+    <form method="GET" action="{% url 'hashtag_search' %}" class="mood_form">
       {% csrf_token %}
       <input
         class="mood_search"
